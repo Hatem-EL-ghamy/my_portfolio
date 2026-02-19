@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hatem Nasser Esmail | Flutter Developer</title>
+    <meta name="description"
+        content="Flutter Mobile Application Developer with 2+ years of experience. Expert in Clean Architecture, Firebase, and seamless user experiences.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================
+         ANIME INTRO LOADER
+         ======================== -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-logo-wrap">
+                <div class="loader-logo">H<span>N</span></div>
+            </div>
+            <div class="loader-terminal" id="loader-terminal"></div>
+            <div class="loader-bar-wrap">
+                <div class="loader-bar" id="loader-bar"></div>
+                <span class="loader-percent" id="loader-percent">0%</span>
+            </div>
+            <div class="loader-tagline">PORTFOLIO<span>.SYS</span></div>
+        </div>
+        <div class="loader-particles" id="loader-particles"></div>
+    </div>
+
+    <!-- Background Canvas -->
+    <canvas id="anime-bg"></canvas>
+    <div class="bg-mesh"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+    <!-- Cursor Trail Container -->
+    <div id="cursor-trail"></div>
+
+    <!-- ========================
+         NAVIGATION
+         ======================== -->
+    <nav>
+        <div class="logo">Hatem<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home" data-i18n="home">Home</a></li>
+            <li><a href="#about" data-i18n="about">About</a></li>
+            <li><a href="#skills" data-i18n="skills">Skills</a></li>
+            <li><a href="#experience" data-i18n="experience">Work</a></li>
+            <li><a href="#projects" data-i18n="projects">Projects</a></li>
+            <li><a href="#contact" data-i18n="contact">Contact</a></li>
+        </ul>
+        <button class="lang-btn" id="lang-toggle">AR</button>
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- ========================
+         HERO SECTION
+         ======================== -->
+    <header id="home">
+        <div class="container hero-content">
+            <div class="hero-text" data-parallax="0.04">
+                <div class="hero-tag">
+                    <span data-i18n="hello">Hello, It's Me</span>
+                </div>
+                <h1 class="glitch" data-text="HATEM NASSER" data-i18n="name">HATEM NASSER</h1>
+                <h3 class="typing-line">
+                    <span data-i18n="im">And I'm a</span>
+                    <span class="typing-text"></span>
+                </h3>
+                <p data-i18n="hero_desc">Flutter Mobile Application Developer with 2+ years of
+                    experience delivering production-ready, scalable applications. Expert in Clean
+                    Architecture, Firebase, and creating seamless user experiences.</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/hatem-el-ghamy" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Hatem-EL-ghamy" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:hatemn480@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+201271964322" title="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn" data-i18n="hire_me">
+                        <i class="fas fa-paper-plane"></i> Hire Me
+                    </a>
+                    <a href="https://drive.google.com/file/d/1gKXpt1gJk6fOVToOhtTzwtgssyzf2ICk/view?usp=drive_link"
+                        class="btn-outline" target="_blank" data-i18n="download_cv">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-img" data-parallax="-0.06">
+                <div class="img-wrapper">
+                    <div class="img-glow"></div>
+                    <div class="img-box" id="hero-img-tilt">
+                        <div class="img-ring"></div>
+                        <div class="img-ring2"></div>
+                        <div class="img-ring3"></div>
+                        <div class="hero-particle"></div>
+                        <div class="hero-particle"></div>
+                        <div class="hero-particle"></div>
+                        <div class="hero-particle"></div>
+                        <div class="hero-particle"></div>
+                        <div class="hero-particle"></div>
+                        <img src="assets/IMG-20250602-WA0008.jpeg" alt="Hatem Nasser Profile">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Hint -->
+        <div class="scroll-hint">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </header>
+
+    <!-- ========================
+         STATS SECTION
+         ======================== -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal stagger-1">
+                    <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="stat-num">
+                        <span class="counter" data-target="10">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label" data-i18n="stat_projects">Projects Delivered</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="width:80%"></div>
+                    </div>
+                </div>
+                <div class="stat-item reveal stagger-2">
+                    <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="stat-num">
+                        <span class="counter" data-target="2">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label" data-i18n="stat_years">Years Experience</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="width:60%"></div>
+                    </div>
+                </div>
+                <div class="stat-item reveal stagger-3">
+                    <div class="stat-icon"><i class="fas fa-code"></i></div>
+                    <div class="stat-num">
+                        <span class="counter" data-target="18">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label" data-i18n="stat_tech">Technologies</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="width:90%"></div>
+                    </div>
+                </div>
+                <div class="stat-item reveal stagger-4">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-num">
+                        <span class="counter" data-target="8">0</span><span class="stat-suffix">+</span>
+                    </div>
+                    <div class="stat-label" data-i18n="stat_clients">Happy Clients</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="width:70%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         ABOUT SECTION
+         ======================== -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="heading reveal"><span data-i18n="about">About</span> <span data-i18n="me">Me</span></h2>
+            <div class="about-content">
+                <div class="about-img-wrap reveal from-left">
+                    <img src="assets/IMG-20250602-WA0008.jpeg" alt="About Hatem">
+                    <div class="about-img-badge">
+                        <span class="badge-num">2+</span>
+                        <span class="badge-text">Years Exp.</span>
+                    </div>
+                </div>
+                <div class="about-text reveal from-right">
+                    <h2><span data-i18n="about">About</span> <span data-i18n="me">Me</span></h2>
+                    <h4 data-i18n="role_title">Flutter Mobile Application Developer</h4>
+                    <p data-i18n="about_desc">I have a proven ability to deliver production-ready, scalable
+                        mobile applications using Flutter and Dart. My strong background includes Clean
+                        Architecture, state management (Bloc, Cubit, GetX), Firebase, REST APIs, and Google
+                        Maps integration. I am experienced in translating business requirements into stable,
+                        user-focused solutions.</p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="location">Cairo, Egypt</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-university"></i>
+                            <span data-i18n="education">B.Sc. Computer Science, Beni Suef University</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>2+ Years Experience</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Flutter & Dart Expert</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-i18n="hire_me">Hire Me</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         SKILLS SECTION
+         ======================== -->
+    <section id="skills" class="services">
+        <div class="container">
+            <h2 class="heading reveal">
+                <span data-i18n="technical">Technical</span> <span data-i18n="skills">Skills</span>
+            </h2>
+            <div class="skills-layout">
+                <!-- Radar Chart -->
+                <div class="radar-wrap reveal from-left">
+                    <canvas id="radar-chart" width="360" height="360"></canvas>
+                    <div class="radar-labels">
+                        <span class="rl rl-top" style="color:var(--cyan-color)">Flutter/Dart</span>
+                        <span class="rl rl-tr" style="color:var(--accent-color)">Architecture</span>
+                        <span class="rl rl-br" style="color:var(--gold-color)">Firebase</span>
+                        <span class="rl rl-bot" style="color:var(--green-color)">APIs</span>
+                        <span class="rl rl-bl" style="color:var(--main-color)">UI/Animations</span>
+                        <span class="rl rl-tl" style="color:var(--orange-color)">DevOps/Tools</span>
+                    </div>
+                </div>
+                <!-- Pills grid -->
+                <div class="skills-grid reveal from-right">
+                    <div class="skill-item"><i class="fas fa-mobile-alt"></i> <span>Flutter</span></div>
+                    <div class="skill-item"><i class="fas fa-code"></i> <span>Dart</span></div>
+                    <div class="skill-item"><i class="fas fa-layer-group"></i> <span>Bloc / Cubit</span></div>
+                    <div class="skill-item"><i class="fas fa-cube"></i> <span>GetX</span></div>
+                    <div class="skill-item"><i class="fas fa-project-diagram"></i> <span>Clean Architecture</span></div>
+                    <div class="skill-item"><i class="fas fa-server"></i> <span>MVVM</span></div>
+                    <div class="skill-item"><i class="fas fa-fire"></i> <span>Firebase Auth</span></div>
+                    <div class="skill-item"><i class="fas fa-database"></i> <span>Cloud Firestore</span></div>
+                    <div class="skill-item"><i class="fas fa-bell"></i> <span>FCM Push Notifications</span></div>
+                    <div class="skill-item"><i class="fas fa-network-wired"></i> <span>REST APIs (Dio/Retrofit)</span>
+                    </div>
+                    <div class="skill-item"><i class="fas fa-map-marked-alt"></i> <span>Google Maps API</span></div>
+                    <div class="skill-item"><i class="fas fa-credit-card"></i> <span>Paymob / Stripe</span></div>
+                    <div class="skill-item"><i class="fas fa-language"></i> <span>Localization</span></div>
+                    <div class="skill-item"><i class="fas fa-magic"></i> <span>Animations</span></div>
+                    <div class="skill-item"><i class="fab fa-git-alt"></i> <span>Git & GitHub</span></div>
+                    <div class="skill-item"><i class="fab fa-figma"></i> <span>Figma to Flutter</span></div>
+                    <div class="skill-item"><i class="fas fa-shield-alt"></i> <span>Agora (Audio/Video)</span></div>
+                    <div class="skill-item"><i class="fas fa-plug"></i> <span>WebSocket / RTC</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         EXPERIENCE TIMELINE
+         ======================== -->
+    <section id="experience" class="timeline-section">
+        <div class="container">
+            <h2 class="heading reveal">Work <span>Experience</span></h2>
+            <div class="timeline">
+
+                <div class="timeline-item reveal from-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h4>Flutter Developer — Freelance</h4>
+                            <span class="timeline-date"><i class="fas fa-clock"></i> 2024 – Present</span>
+                        </div>
+                        <p>Developing production-ready Flutter applications for clients across various industries.
+                            Specializing in Clean Architecture, Firebase integration, and pixel-perfect UI
+                            implementations from Figma designs.</p>
+                        <div class="timeline-tags">
+                            <span>Flutter</span><span>Firebase</span><span>Clean Arch</span><span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal from-left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h4>Mobile Developer — Personal Projects</h4>
+                            <span class="timeline-date"><i class="fas fa-clock"></i> 2023 – 2024</span>
+                        </div>
+                        <p>Built and published multiple Flutter applications including E-commerce, Job Search (Jobizaa),
+                            Home Services, and Meal Planning apps. Integrated payment gateways, Google Maps, and
+                            real-time features.</p>
+                        <div class="timeline-tags">
+                            <span>Flutter</span><span>REST API</span><span>Google Maps</span><span>Bloc</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal from-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h4>B.Sc. Computer Science</h4>
+                            <span class="timeline-date"><i class="fas fa-clock"></i> 2020 – 2024</span>
+                        </div>
+                        <p>Bachelor of Computer Science from Beni Suef University. Studied algorithms, data structures,
+                            software engineering, and database systems. Began Flutter during second year and specialized
+                            in mobile development.</p>
+                        <div class="timeline-tags">
+                            <span>CS Fundamentals</span><span>Algorithms</span><span>Software Eng.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         PROJECTS SECTION
+         ======================== -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="heading reveal">
+                <span data-i18n="my">My</span> <span data-i18n="projects">Projects</span>
+            </h2>
+            <div class="projects-container">
+
+                <!-- Home Services -->
+                <div class="project-card reveal stagger-1">
+                    <div class="project-img">
+                        <img src="assets/homeeze/process 1.png" alt="Home Services App" onclick="openLightbox('home')"
+                            style="cursor:pointer;">
+                        <div class="project-overlay" onclick="openLightbox('home')" style="cursor:pointer;">
+                            <span><i class="fas fa-images"></i> View Gallery</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 data-i18n="project_home_title">Home Services App</h4>
+                        <p data-i18n="project_home_desc">Cross-platform app for booking home services. Firebase
+                            Auth/Firestore, Google Maps tracking, electronic payments.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">Google Maps</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Hatem-EL-ghamy/home_services_firebase.git" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce -->
+                <div class="project-card reveal stagger-2">
+                    <div class="project-img">
+                        <img src="assets/e-commers/Screenshot 2026-02-17 230056.png" alt="E-Commerce App"
+                            onclick="openLightbox('ecommerce')" style="cursor:pointer;">
+                        <div class="project-overlay" onclick="openLightbox('ecommerce')" style="cursor:pointer;">
+                            <span><i class="fas fa-images"></i> View Gallery</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 data-i18n="project_ecommerce_title">E-Commerce Application</h4>
+                        <p data-i18n="project_ecommerce_desc">Full-featured e-commerce app with catalog, cart, checkout,
+                            and order tracking. Clean Architecture + REST APIs.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">REST API</span>
+                            <span class="project-tag">Clean Arch</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Hatem-EL-ghamy/e-commerce.git" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jobizaa -->
+                <div class="project-card reveal stagger-3">
+                    <div class="project-img">
+                        <img src="assets/jobze/Start.jpg" alt="Jobizaa App" onclick="openLightbox('jobizaa')"
+                            style="cursor:pointer;">
+                        <div class="project-overlay" onclick="openLightbox('jobizaa')" style="cursor:pointer;">
+                            <span><i class="fas fa-images"></i> View Gallery</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 data-i18n="project_jobizaa_title">Jobizaa — Job Search</h4>
+                        <p data-i18n="project_jobizaa_desc">Cross-platform job search app with REST API integration for
+                            listings and user profiles. Clean Architecture.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">REST API</span>
+                            <span class="project-tag">Bloc</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Hatem-EL-ghamy/jobizz.git" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meals App -->
+                <div class="project-card reveal stagger-4">
+                    <div class="project-img">
+                        <img src="assets/Meals%20App/Home%20Screen.jpg" alt="Meals App" onclick="openLightbox('meals')"
+                            style="cursor:pointer;">
+                        <div class="project-overlay" onclick="openLightbox('meals')" style="cursor:pointer;">
+                            <span><i class="fas fa-images"></i> View Gallery</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4 data-i18n="project_meals_title">Easy Meals Manager</h4>
+                        <p data-i18n="project_meals_desc">Smart meal planning and management app to help users organize
+                            daily meals effectively.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">GetX</span>
+                            <span class="project-tag">SQLite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Hatem-EL-ghamy/easy_meals_manager.git" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         CONTACT SECTION
+         ======================== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="heading reveal">
+                <span data-i18n="contact">Contact</span> <span data-i18n="me">Me</span>
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info reveal from-left">
+                    <h3>Let's Build <span>Something Amazing</span></h3>
+                    <p>Have a project in mind or want to collaborate? Reach out and let's create something extraordinary
+                        together.</p>
+                    <div class="contact-links">
+                        <a href="mailto:hatemn480@gmail.com" class="contact-link-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hatemn480@gmail.com</span>
+                        </a>
+                        <a href="tel:+201271964322" class="contact-link-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+20 127 196 4322</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hatem-el-ghamy" target="_blank" class="contact-link-item">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>linkedin.com/in/hatem-el-ghamy</span>
+                        </a>
+                        <a href="https://github.com/Hatem-EL-ghamy" target="_blank" class="contact-link-item">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/Hatem-EL-ghamy</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal from-right">
+                    <form id="whatsapp-form">
+                        <div class="input-box">
+                            <input type="text" id="wa-name" placeholder="Full Name" data-i18n-placeholder="full_name">
+                            <input type="email" id="wa-email" placeholder="Email Address"
+                                data-i18n-placeholder="email_address">
+                        </div>
+                        <div class="input-box">
+                            <input type="number" id="wa-number" placeholder="Mobile Number"
+                                data-i18n-placeholder="mobile_number">
+                            <input type="text" id="wa-subject" placeholder="Email Subject"
+                                data-i18n-placeholder="email_subject">
+                        </div>
+                        <textarea id="wa-message" rows="6" placeholder="Your Message"
+                            data-i18n-placeholder="your_message"></textarea>
+                        <input type="submit" class="btn" value="Send to WhatsApp" data-i18n-value="send_message">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================
+         FOOTER
+         ======================== -->
+    <footer>
+        <div class="footer-text">
+            <p data-i18n="copyright">Copyright &copy; 2026 by <span>Hatem Nasser Esmail</span> | All Rights Reserved.
+            </p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- ========================
+         LIGHTBOX MODAL
+         ======================== -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-inner">
+            <span class="close-lightbox">&times;</span>
+            <img class="lightbox-content" id="lightbox-img" alt="Project Screenshot">
+            <div class="caption" id="caption"></div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
