@@ -7,18 +7,20 @@
    ============================================= */
 let lenis;
 try {
-    lenis = new Lenis({
-        duration: 1.3,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true,
-    });
-    function rafLoop(time) {
-        lenis.raf(time);
+    if (window.innerWidth > 768) {
+        lenis = new Lenis({
+            duration: 1.3,
+            easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true,
+        });
+        function rafLoop(time) {
+            lenis.raf(time);
+            requestAnimationFrame(rafLoop);
+        }
         requestAnimationFrame(rafLoop);
     }
-    requestAnimationFrame(rafLoop);
 } catch (e) {
-    // Lenis not available, use native scroll
+    // Lenis not available
 }
 
 /* =============================================
@@ -463,6 +465,10 @@ interactables.forEach(el => {
    11. SCROLL REVEAL — STAGGER ANIMATIONS
    ============================================= */
 (function initScrollReveal() {
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        return;
+    }
     const revealEls = document.querySelectorAll('.reveal');
 
     const observer = new IntersectionObserver((entries) => {
@@ -919,3 +925,6 @@ document.getElementById('whatsapp-form')?.addEventListener('submit', e => {
     showToast('Opening WhatsApp... 🎉');
     e.target.reset();
 });
+// Export functions to window for HTML onclick handlers
+window.openLightbox = openLightbox;
+window.changeSlide = changeSlide;
