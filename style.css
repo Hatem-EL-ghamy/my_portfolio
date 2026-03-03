@@ -1463,7 +1463,7 @@ section {
     align-items: start;
 }
 
-.contact-info {}
+
 
 .contact-info h3 {
     font-family: 'Orbitron', sans-serif;
@@ -1549,7 +1549,7 @@ section {
 .contact form textarea:focus,
 .form-group input:focus {
     border-color: var(--main-color);
-    bg-color: rgba(124, 106, 255, 0.05);
+    background-color: rgba(124, 106, 255, 0.05);
     box-shadow: 0 0 15px rgba(124, 106, 255, 0.2);
     outline: none;
 }
@@ -2526,9 +2526,12 @@ html[dir="rtl"] h4 {
 
 .radar-wrap {
     position: relative;
-    width: 380px;
-    height: 380px;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    aspect-ratio: 1/1;
     flex-shrink: 0;
+    margin: 0 auto;
 }
 
 #radar-chart {
@@ -2777,12 +2780,12 @@ html[dir="rtl"] h4 {
 
     .rl-tr,
     .rl-br {
-        right: -3rem;
+        right: -1rem;
     }
 
     .rl-bl,
     .rl-tl {
-        left: -3rem;
+        left: -1rem;
     }
 }
 
@@ -2793,9 +2796,9 @@ html[dir="rtl"] h4 {
 
     .timeline-item,
     .timeline-item:nth-child(even) {
-        justify-content: flex-end;
+        justify-content: flex-start;
         padding-right: 0;
-        padding-left: 7rem;
+        padding-left: 6rem;
     }
 
     .timeline-dot {
@@ -2811,17 +2814,16 @@ html[dir="rtl"] h4 {
     }
 
     .radar-wrap {
-        width: 300px;
-        height: 300px;
+        max-width: 320px;
     }
 
     #radar-chart {
-        width: 300px;
-        height: 300px;
+        width: 100% !important;
+        height: 100% !important;
     }
 
     .rl {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .loader-bar-wrap {
@@ -2836,26 +2838,35 @@ html[dir="rtl"] h4 {
 @media (max-width: 600px) {
     .stats-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .stat-num {
-        font-size: 3.8rem;
+        font-size: 3.2rem;
     }
 
     .timeline-item,
     .timeline-item:nth-child(even) {
-        padding-left: 5.5rem;
+        padding-left: 5rem;
     }
 
     .timeline-dot {
-        width: 4rem;
-        height: 4rem;
-        font-size: 1.4rem;
+        width: 3.8rem;
+        height: 3.8rem;
+        font-size: 1.3rem;
+        left: 2rem;
+    }
+
+    .timeline::before {
+        left: 2rem;
+    }
+
+    .timeline-content::before {
+        top: 1.5rem;
     }
 
     .loader-bar-wrap {
-        width: 24rem;
+        width: 22rem;
     }
 }
 
@@ -2865,12 +2876,10 @@ html[dir="rtl"] h4 {
     }
 
     .radar-wrap {
-        width: 260px;
-        height: 260px;
+        max-width: 250px;
     }
 
-    #radar-chart {
-        width: 260px;
-        height: 260px;
+    .rl {
+        font-size: 0.75rem;
     }
 }
